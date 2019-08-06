@@ -9,7 +9,7 @@
 ## Installation
 ### Clone
 ```
-$ git clone https://github.com/Khusnijafar/expressCRUD.git
+$ git clone https://github.com/Khusnijafar/Backend-NodeJS-react-Lib-App.git
 $ cd expressCRUD
 $ npm install
 ```
