@@ -67,7 +67,7 @@ module.exports = {
                 console.log(error);
             })
     },
-    insertBook: (req, res) => {
+    insertBook: async (req, res) => {
         console.log(req.file)
         // const image = req.file.filename
         const {
@@ -79,6 +79,7 @@ module.exports = {
             id_category,
             status
         } = req.body
+
         let geturl = async (req) =>{
             cloudinary.config({
                 cloud_name: 'dwv9umye9',
