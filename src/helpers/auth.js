@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const MiscHelper = require('../helpers/helpers')
 
-const allowedAccess = process.env.REQUEST_HEADERS
+const allowedAccess = process.env.REQUEST_HEADERS || 'khusni'
 
 module.exports = {
     authInfo: (req, res, next) => {
@@ -24,7 +24,7 @@ module.exports = {
       },
     
       accesstoken: (req, res, next) => {
-        const secretKey = process.env.SECRET_KEY
+        const secretKey = process.env.SECRET_KEY || 'khusnijafarveryverylongsecret'
         const accessToken = req.token
         console.log(req.token);
         

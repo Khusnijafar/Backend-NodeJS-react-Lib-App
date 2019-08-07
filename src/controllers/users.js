@@ -62,7 +62,7 @@ module.exports = {
                 if (userPassword === dataUser.password) {
                     dataUser.token = jwt.sign({
                         userid: dataUser.id_user
-                    }, process.env.SECRET_KEY, { expiresIn: '7d'})
+                    }, process.env.SECRET_KEY || 'khusnijafarveryverylongsecret', { expiresIn: '7d'})
                     delete dataUser.salt
                     delete dataUser.password
                     // console.log('Token stored !' + dataUser.token);

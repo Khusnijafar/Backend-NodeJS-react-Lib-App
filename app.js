@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var Cors = require('cors');
+// var Cors = require('cors');
 const xssFilter = require('x-xss-protection');
 
 var app = express();
@@ -32,7 +32,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use('/upload', express.static('upload'));
-app.use(Cors());
+// app.use(Cors());
 // app.options('*', Cors(corsOptions))
 app.use(xssFilter());
 app.use(express.json());
