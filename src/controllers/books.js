@@ -1,6 +1,6 @@
 const bookModels = require('../models/books');
 const miscHelper = require('../helpers/helpers');
-const cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary')
 
 module.exports = {
     getIndex: (req, res) => {
@@ -68,7 +68,8 @@ module.exports = {
             })
     },
     insertBook: async (req, res) => {
-        console.log(req.file)
+        let path = req.file.path        
+        console.log(req.file.path)
         // const image = req.file.filename
         const {
             title,
@@ -100,7 +101,6 @@ module.exports = {
         // let fileName =  'http://localhost:3001/upload/' + req.file.filename
         const data = {
             title,
-            // image,
             image: await geturl(),
             writer,
             description,

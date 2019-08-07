@@ -7,13 +7,14 @@ const path = require('path')
 const uploadImage = require('../helpers/uploading')
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, './upload/')
+        cb(null, './upload')
     },
     filename: function(req, file, cb) {
-        cb(null, new Date().toISOString() + path.extname(file.originalname))
+        cb(null, file.originalname)
     }
 })
 const upload = multer({ storage: storage})
+
 Route 
     .get('/', BookController.getBooks)
     .get('/:id_book', BookController.bookDetail)
