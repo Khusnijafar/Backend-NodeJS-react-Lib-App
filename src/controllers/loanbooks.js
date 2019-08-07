@@ -38,6 +38,9 @@ module.exports = {
             })
     },
     updateLoanbooks: (req, res) => {
+        console.log(req.body);
+        console.log(req.params);
+        
         const id_loanbook = req.params.id_loanbook
         const {
             card_number,
@@ -64,6 +67,7 @@ module.exports = {
             })
     },
     insertLoanbooks: (req, res) => {
+        const idBook = parseInt(req.params.id_book)
         const {
             card_number,
             id_book,
@@ -80,7 +84,7 @@ module.exports = {
             updated_at: new Date(),
             created_at: new Date()
         }
-        loanbooksModel.insertLoanbooks(data)
+        loanbooksModel.insertLoanbooks(data, idBook)
             .then((resultLoanbooks) => {
                 const result = resultLoanbooks
                 console.log(result);

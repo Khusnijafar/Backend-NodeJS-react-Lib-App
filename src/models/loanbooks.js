@@ -56,10 +56,11 @@ module.exports = {
             })
         })
     },
-    insertLoanbooks: (data) => {
+    insertLoanbooks: (data, id_book) => {
         return new Promise((resolve, reject) => {
             connection.query("INSERT INTO loan_book SET ?", data, (err, result) => {
                 if (!err) {
+                    connection.query("UPDATE data_book SET status = 1 WHERE id_book = ? ", id_book)
                     resolve(result)
                 } else {
                     reject(new Error(err))
