@@ -2,6 +2,7 @@ const express = require('express')
 const Route = express.Router()
 const BookController = require('../controllers/books')
 const multer = require('multer')
+const path = require('path')
 
 const uploadImage = require('../helpers/uploading')
 const storage = multer.diskStorage({
@@ -9,7 +10,7 @@ const storage = multer.diskStorage({
         cb(null, './upload/')
     },
     filename: function(req, file, cb) {
-        cb(null, new Date().toISOString() + file.originalname)
+        cb(null, new Date().toISOString() + path.extname(file.originalname))
     }
 })
 const upload = multer({ storage: storage})
