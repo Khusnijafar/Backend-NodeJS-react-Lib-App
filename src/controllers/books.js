@@ -1,5 +1,6 @@
 const bookModels = require('../models/books');
 const miscHelper = require('../helpers/helpers');
+const cloudinary = require('cloudinary');
 
 module.exports = {
     getIndex: (req, res) => {
@@ -78,10 +79,28 @@ module.exports = {
             id_category,
             status
         } = req.body
+        let geturl = async (req) =>{
+            cloudinary.config({
+                cloud_name: 'dwv9umye9',
+                api_key: '814525311932543',
+                api_secret: 'wiWIl-Goh-Ll1XLceh71lQoBqfw'
+            })
+
+            let dataCloudinary
+            await cloudinary.uploader.upload(path, (result)=>{
+                const fs = require('fs')
+                fs.unlinkSync(path)
+                dataCloudinary = result.url
+            })
+
+            return dataCloudinary
+        }
+        
+        // let fileName =  'http://localhost:3001/upload/' + req.file.filename
         const data = {
             title,
             // image,
-            image: 'http://localhost:3001/upload/' + req.file.filename,
+            image: await geturl(),
             writer,
             description,
             location,
