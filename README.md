@@ -28,8 +28,35 @@ DB_NAME="Your_Table"
 ```
 ### Start Development Server
 ```
+$ npm install
+```
+```
+$ npm i nodemon
+```
+```
 $ npm start
 ```
+
+ ## Routes
+  
+  ### User Routes
+
+    - ` / ` -> index of main REST
+
+  
+  ### PATCH Method for updating data
+    
+    - ` /:id_user`
+
+  ### POST Method for inserting data
+
+    - ` / `
+
+  ### DELETE Method for deleting data
+
+    - ` /:id_user `
+
+
 
 ### License
 ----
